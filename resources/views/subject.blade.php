@@ -41,14 +41,19 @@
         <p class="mb-3 font-normal text-gray-200">
           Add to your bookmark to see it when ever you want!
         </p>
-        <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium 
-          text-center text-gray-800 bg-white rounded-lg hover:bg-gray-700 hover:text-white hover:shadow-lg"
-          onclick="return confirm('Added to your bookmark!')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill mr-2" viewBox="0 0 16 16">
-            <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
-          </svg>
-          Bookmark
-        </a>
+        <form action="/bookmark" method="post">
+          @csrf
+          <button class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-800 bg-white rounded-lg hover:bg-gray-700 hover:text-white hover:shadow-lg"
+                  type="submit"
+                  id="subject_id" name="subject_id"
+                  value={{ $subject->id }}
+                  onclick="return confirm('Added to your bookmark!')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill mr-2" viewBox="0 0 16 16">
+              <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+            </svg>
+            Bookmark
+          </button>
+        </form>
       </div>  
     </div>
     @else

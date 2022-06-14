@@ -14,7 +14,11 @@ module.exports = {
         variants: {
             textColor: ["responsive", "hover", "focus", "group-hover"],
         },
-        extend: {},
+        extend: {
+            spacing: {
+                "1/2screen": "70vh",
+            },
+        },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [],
 };

@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\AdminSubjectController;
@@ -77,5 +78,8 @@ Route::resource('/admin/subjects', AdminSubjectController::class);
 Route::resource('/admin/categories', AdminCategoriesController::class);
 Route::resource('/admin/students', AdminStudentController::class);
 Route::resource('/admin/teachers', AdminTeacherController::class);
+
+Route::get('/bookmark', [BookmarkController::class,'index']);
+Route::post('/bookmark', [BookmarkController::class,'store']);
 
 
