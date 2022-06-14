@@ -9,6 +9,14 @@ class Subject extends Model
 {
     use HasFactory;
 
+    public function scopeFilter($query, array $filter)
+    {
+        $query->when($filter['search'] ?? false, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('desc', 'like', '%' . $search . '%');
+        });
+    }
+
     protected $fillable = [
         'name',
         'slug',
