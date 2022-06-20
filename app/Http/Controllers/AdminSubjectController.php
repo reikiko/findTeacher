@@ -47,22 +47,7 @@ class AdminSubjectController extends Controller
      */
     public function store(Request $request)
     {
-        $validationData = $request->validate([
-            'name' => 'required|max:255',
-            'slug' => 'required|unique:subjects',
-            'category_id' => 'required',
-            'image' => 'image|file|max:1024',
-            'desc' => 'required',
-        ]);
-
-        if ($request->file('image')) {
-            $validationData['image'] = $request->file('image')->store('subject-images');
-        }
-        $validationData['teacher_id'] = auth('teach')->user()->id;
-        $validationData['excerpt'] = Str::limit(strip_tags($request->desc), 200);
-
-        $checkSave = Subject::create($validationData);
-        return redirect('/dashboard/subjects')->with('success', 'New subject has been added!');
+        //
     }
 
     /**
@@ -101,7 +86,8 @@ class AdminSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    //Update Subject
+    public function update(Request $request, Subject $subject)
     {
         $rules = [
             'name' => 'required',
@@ -137,6 +123,7 @@ class AdminSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Delete Subject
     public function destroy(Subject $subject)
     {
         if($subject->image){

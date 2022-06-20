@@ -32,6 +32,7 @@
           <th scope="col">Name</th>
           <th scope="col">Slug</th>
           <th scope="col">Category</th>
+          <th scope="col">Bookmarked</th>
         </tr>
       </thead>
       <tbody>
@@ -41,6 +42,7 @@
           <td>{{ $subject->name }}</td>
           <td>{{ $subject->slug }}</td>
           <td>{{ $subject->category->name }}</td>
+          <td>{{ $subject->bookmark->count() }}</td>
           <td>
             <a href='/dashboard/subjects/{{ $subject->slug }}' class="btn btn-primary btn-sm"><i class="bi bi-eye-fill"></i></a>
             <a href='/dashboard/subjects/{{ $subject->slug }}/edit ' class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>

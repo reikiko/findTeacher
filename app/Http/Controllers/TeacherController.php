@@ -17,6 +17,7 @@ class TeacherController extends Controller
         ]);
     }
 
+    // RegisterTeacher
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -24,8 +25,12 @@ class TeacherController extends Controller
             'name' => 'required|max:255',
             'username' => 'required|min:5|max:20|unique:teachers',
             'password' => 'required|min:5|max:10|',
+            'avatar' => 'image|file|max:1024',
             'phone_number' => 'required|max:12'
         ]);
+        if ($request->file('avatar')) {
+            $validated['avatar'] = $request->file('avatar')->store('subject-images');
+        }
         $validated['password'] = Hash::make($validated['password']);
         Teacher::create($validated);
 

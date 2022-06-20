@@ -15,6 +15,7 @@ class StudentController extends Controller
         ]);
     }
 
+    // RegisterStudent
     public function store(Request $request)
     {
         $validated = $request->validate([

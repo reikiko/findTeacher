@@ -49,9 +49,6 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="password">Password</label>
                     <input type="password" id="password" name="password" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 transition duration-300 px-3 pb-3">
                 </div>
-                <div class="flex justify-end">
-                    <a href="/choose" class="text-sm text-black hover:text-gray-600 hover:underline mb-6">or Change your type of account</a>
-                </div>
                 <button class="bg-gray-700 hover:bg-black text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" type="submit">Sign In</button>
             </form>
         </section>

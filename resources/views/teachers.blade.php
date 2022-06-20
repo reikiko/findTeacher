@@ -7,7 +7,7 @@
   @foreach($teachers as $teacher)
   <div class="flex flex-col items-center w-80 justify-center bg-white p-4 shadow rounded-lg">
     <div class="inline-flex shadow-lg border border-gray-200 rounded-full overflow-hidden h-40 w-40">
-      <img src="https://i.pinimg.com/474x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"
+      <img src="{{ asset('/storage/'. $teacher->avatar ) }}"
          alt="avatar"
          class="h-full w-full">
     </div>

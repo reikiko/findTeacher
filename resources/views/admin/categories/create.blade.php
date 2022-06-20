@@ -16,8 +16,8 @@
     <form class="mb-5" action="/admin/categories " method="post" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
-        <label for="name" class="form-label">Subject Name</label>
-        <input type="text" placeholder="Subject Name" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+        <label for="name" class="form-label">Category Name</label>
+        <input type="text" placeholder="Category Name" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
         value="{{ old('name', $categories->name) }}">
         @error('name')
           <div class="invalid-feedback">{{ $subject }}</div>
@@ -25,7 +25,7 @@
       </div>
       <div class="mb-3">
         <label for="slug" class="form-label">Slug</label>
-        <input type="text" placeholder="subject-slug" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+        <input type="text" placeholder="category-slug" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
         value="{{ old('slug', $categories->slug) }}">
         @error('slug')
           <div class="invalid-feedback">{{ $message }}</div>

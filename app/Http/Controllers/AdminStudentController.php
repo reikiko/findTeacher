@@ -75,6 +75,7 @@ class AdminStudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Update Student
     public function update(Request $request, $id)
     {
         $rules = [
@@ -104,6 +105,7 @@ class AdminStudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Delete Student
     public function destroy(Student $student)
     {
         Student::destroy($student->id);

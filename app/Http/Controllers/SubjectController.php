@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {
-    
+    //View Subjects
     public function index()
     {
         $subjects = Subject::with(['category']);

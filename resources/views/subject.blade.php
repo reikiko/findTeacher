@@ -17,7 +17,7 @@
         <!--author avatar-->
         <div class="font-light text-gray-600">
           <a href="#" class="flex items-center mt-6 mb-6">
-            <img src="https://i.pinimg.com/474x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg" alt="avatar" class="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block">
+            <img src="{{ asset('/storage/'. $subject->teacher->avatar ) }}" alt="avatar" class="hidden object-cover w-14 h-14 mx-4 rounded-full sm:block">
               <h1 class="font-bold text-gray-700 hover:underline">By {{ $subject->teacher->name }}</h1>
           </a>
         </div>

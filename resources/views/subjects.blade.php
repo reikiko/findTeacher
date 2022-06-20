@@ -31,7 +31,7 @@
                         <div class="flex items-center justify-between mt-4"><a href="/subject/{{ $subject->slug }}"
                             class="text-blue-500 hover:underline">Read more</a>
                             <div><a href="#" class="flex items-center"><img
-                                src="https://i.pinimg.com/474x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg"
+                                src="{{ asset('/storage/'. $subject->teacher->avatar ) }}"
                                 alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
                                 <h1 class="font-bold text-gray-700 hover:underline">{{ $subject->teacher->name }}</h1>
                             </a></div>
@@ -50,7 +50,7 @@
                   <ul class="-mx-4">
                     @foreach($teachers as $teacher)
                       <li class="flex items-center mb-3">
-                        <img src="https://i.pinimg.com/474x/ec/e2/b0/ece2b0f541d47e4078aef33ffd22777e.jpg" alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
+                        <img src="{{ asset('/storage/'. $teacher->avatar ) }}" alt="avatar" class="object-cover w-10 h-10 mx-4 rounded-full">
                           <p><a href="#" class="mx-1 font-bold text-gray-700 hover:underline">{{ $teacher->name }}</a><span
                                   class="text-sm font-light text-gray-700">Has {{ $teacher->subject->count() }} subjects</span></p>
                       </li>

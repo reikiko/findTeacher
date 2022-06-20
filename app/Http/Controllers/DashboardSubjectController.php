@@ -45,6 +45,7 @@ class DashboardSubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Add Subject
     public function store(Request $request)
     {
         $validationData = $request->validate([
@@ -101,7 +102,7 @@ class DashboardSubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Subject $subject)
     {
         $rules = [
             'name' => 'required',

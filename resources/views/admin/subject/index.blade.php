@@ -42,9 +42,9 @@
           <td>{{ $subject->slug }}</td>
           <td>{{ $subject->category->name }}</td>
           <td>
-            <a href='/dashboard/subjects/{{ $subject->slug }}' class="btn btn-primary btn-sm"><i class="bi bi-eye-fill"></i></a>
-            <a href='/dashboard/subjects/{{ $subject->slug }}/edit ' class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-            <form action='/dashboard/subjects/{{ $subject->slug}}' method='post' class="d-inline">
+            <a href='/admin/subjects/{{ $subject->slug }}' class="btn btn-primary btn-sm"><i class="bi bi-eye-fill"></i></a>
+            <a href='/admin/subjects/{{ $subject->slug }}/edit ' class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+            <form action='/admin/subjects/{{ $subject->slug}}' method='post' class="d-inline">
               @method('delete')
               @csrf
               <button class="btn btn-danger btn-sm border-0" onclick="return confirm('Confirm Delete')">
@@ -56,7 +56,6 @@
         @endforeach
       </tbody>
     </table>
-    <a href='/dashboard/subjects/create' class="btn btn-secondary btn-sm"><i class="bi bi-folder-plus"></i> Post New Subject</a>
   </div>
 @endsection
 

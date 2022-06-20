@@ -16,7 +16,7 @@ class BookmarkController extends Controller
             "subject" => Subject::all(),
         ]);
     }
-
+    //Add Bookmark
     public function store(Request $request)
     {
         $validationData = $request->validate([

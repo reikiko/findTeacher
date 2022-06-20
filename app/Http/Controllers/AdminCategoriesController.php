@@ -84,6 +84,7 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Update Category
     public function update(Request $request, $id)
     {
         $rules = [
@@ -108,6 +109,7 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Delete Category
     public function destroy(Category $categories)
     {
         Category::destroy($categories->id);

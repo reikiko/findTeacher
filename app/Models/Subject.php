@@ -35,6 +35,10 @@ class Subject extends Model
         return $this->belongsTo(Teacher::class);        
     }
 
+    public function bookmark(){
+        return $this->hasMany(Bookmark::class);        
+    }
+
     public function getRouteKeyName(){
         return 'slug';
     }

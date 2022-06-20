@@ -75,13 +75,14 @@ class AdminTeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    //Update Teacher
+    public function update(Request $request, Teacher $teacher)
     {
         $rules = [
-            'email' => 'required|email:dns|unique:teachers',
             'name' => 'required|max:255',
             'password' => 'required|min:5|max:10|',
             'phone_number' => 'required|max:12',
+            'avatar' => 'image|file|max:1024',
         ];
 
         
@@ -89,7 +90,20 @@ class AdminTeacherController extends Controller
             $rules['username'] = 'required|min:5|max:20|unique:teachers';
         }
         
+        if($request->email != $teacher->email){
+            $rules['email'] = 'required|email:dns|unique:teachers';
+        }
+
         $validated = $request->validate($rules);
+
+
+        if($request->file('avatar')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validated['avatar'] = $request->file('avatar')->store('subject-img');
+        }
+        
         Teacher::where('id', $teacher->id)
                 ->update($validated);
 
@@ -102,8 +116,13 @@ class AdminTeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Delete Teacher
     public function destroy(Teacher $teacher)
     {
+        if($teacher->avatar){
+            Storage::delete($teacher->avatar);
+        }
+ 
         Teacher::destroy($teacher->id);
 
         return redirect('/admin/teachers')->with('deleted', ' Teacher has been deleted!');
